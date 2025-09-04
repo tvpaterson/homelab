@@ -15,7 +15,9 @@ spec:
         namespace: flux-system
       interval: 1h
   values:
-    adminPassword: "admin123" # Change to a secure password
+    nodeSelector:
+      node-role.kubernetes.io/worker: worker
+    adminPassword: "teddy2309" # Change to a secure password
     service:
       type: ClusterIP
       port: 80
