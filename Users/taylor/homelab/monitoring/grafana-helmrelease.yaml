@@ -1,0 +1,26 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: grafana
+      version: "8.5.*" # Use latest 8.5.x version; check https://grafana.github.io/helm-charts for updates
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: flux-system
+      interval: 1h
+  values:
+    adminPassword: "admin123" # Change to a secure password
+    service:
+      type: ClusterIP
+      port: 80
+    persistence:
+      enabled: true
+      size: 1Gi
+    ingress:
+      enabled: false # Enable for external access (see below)
