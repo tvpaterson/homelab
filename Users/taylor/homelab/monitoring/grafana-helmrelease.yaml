@@ -25,7 +25,7 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - host: grafana.192.168.0.146
+      - host: grafana.192.168.0.146.nip.io
         paths:
         - path: /
           pathType: Prefix
