@@ -23,4 +23,11 @@ spec:
       enabled: true
       size: 1Gi
     ingress:
-      enabled: false # Enable for external access (see below)
+      enabled: true
+      hosts:
+      - host: grafana.192.168.0.146
+        paths:
+        - path: /
+          pathType: Prefix
+      annotations:
+        kubernetes.io/ingress.class: traefik
