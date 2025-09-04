@@ -1,1 +1,0 @@
-# Script to setup node for K3s
